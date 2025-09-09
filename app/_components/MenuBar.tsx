@@ -4,9 +4,9 @@ const MenuBar=()=>{
     return(
         <>
             <Link href="/">home</Link>&nbsp;&nbsp;
-            <Link href="/about">about</Link>&nbsp;&nbsp;
-            <Link href="/contact">contact</Link>&nbsp;&nbsp;          
-
+            <Link href="/input">input</Link>&nbsp;&nbsp;
+            <Link href="/show">show</Link>&nbsp;&nbsp;    
+         <Link href="/update">Update</Link>
         </>
     );
 }

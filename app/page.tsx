@@ -1,20 +1,16 @@
-'use client';
-import { useData } from "./_components/DataProvider";
-const Home=()=>{
-    const{state,dispatch}=useData();   
-    
+const Home=()=>{   
     return(
         <>
             <h2>Home</h2>
             <p>
-                Roll : {state.roll} <br />
-                Name : {state.name} <br />
-                Address : {state.address}
-            </p>        
+                Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. 
+            </p>
+
+
             <p>
-                <input type="button" value="Update from Home" 
-                    onClick={()=>dispatch({type:'update',payload:{roll:5555,name:'kunal',address:'Delhi'}})} />
-            </p>  
+                Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. Some text for Home goes here. 
+            </p>
+            
         </>
     );
 }

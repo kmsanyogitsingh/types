@@ -1,33 +1,48 @@
 'use client';
 import React,{useReducer,useContext,createContext} from 'react';
-
-
-type Student={
-    roll:number;
+export type User={
     name:string;
-    address:string;
+    age:number;
+    email:string;
 };
-type ActionType={type:'update',payload:Student}|{type:'reset'};
+type ActionType=
+    | {type:'add',payload:User}
+    | {type:'reset'}
+    | {type:'del',payload:number}
+    | {type:'update', payload:{ index:number; user:User }};
+
+type Records={
+    users: User[];
+};
 
 type ContextType={
-    state:Student;
+    state:Records;
     dispatch:React.Dispatch<ActionType>
 };
 
-const is:Student={roll:1001,name:'amit kapoor',address:'New Ashok nagar'};
-
-const reducer=(state:Student,action:ActionType):Student=>{
-    //console.log("from reducer : ",action.type);
-    if(action.type!="reset")
-    {
-        //console.log(action.payload);   
-    }    
+const is:Records={users:[]};
+const reducer=(state:Records,action:ActionType):Records=>{  
     switch(action.type)
     {      
-        case "update" : return action.payload;
-                            //return {roll:action.payload.roll,name:action.payload.name,address:action.payload.address};
-        case "reset" : return is;
-        default : return state;
+        case "add": {
+            const rcds=[...state.users];
+            rcds.push(action.payload);
+            return {users:rcds}; 
+        }
+        case "del": {
+            const arr=[...state.users];
+            arr.splice(action.payload,1);
+            return {users:arr}; 
+        }
+        case "update": {
+            const arr=[...state.users];
+            arr[action.payload.index] = action.payload.user;
+            return {users:arr};
+        }
+        case "reset": 
+            return is;
+        default : 
+            return state;
     }
 }
 

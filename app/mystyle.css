@@ -1,0 +1,11 @@
+.box
+{
+    width: 250px;
+    padding:25px;
+    margin:25px;
+    border:Solid 1px gray;
+    box-shadow: 0 5px 2px gray;
+    display: inline-block;
+    text-align: center;
+    font-size: 25px;
+}
